@@ -990,7 +990,7 @@ page404:
 # Links Page
 #---------------------------
 links:
-  enable: false
+  enable: true
   banner_img: /img/default.webp
   banner_img_height: 60
   banner_mask_alpha: 0.3
@@ -998,22 +998,16 @@ links:
   # Member item of page
   items:
     - {
-      title: "Fluid Blog",
-      intro: "主题博客",
-      link: "https://hexo.fluid-dev.com/",
-      avatar: "/img/favicon.png"
-    }
-    - {
-      title: "Fluid Docs",
-      intro: "主题使用指南",
-      link: "https://hexo.fluid-dev.com/docs/",
-      avatar: "/img/favicon.png"
-    }
-    - {
       title: "Fluid Repo",
-      intro: "主题 GitHub 仓库",
+      intro: "Fluid主题 GitHub仓库",
       link: "https://github.com/fluid-dev/hexo-theme-fluid",
-      avatar: "/img/favicon.png"
+      avatar: "/img/fluid.webp" # "/img/favicon.png"
+    }
+    - {
+      title: "lantublog Repo",
+      intro: "lantu博客 Github仓库",
+      link: "https://github.com/itlantu/itlantu.github.io.git",
+      avatar: "/img/github.png" # "/img/favicon.png"
     }
 
   # 当成员头像加载失败时，替换为指定图片
