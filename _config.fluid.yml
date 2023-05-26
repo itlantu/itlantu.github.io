@@ -1045,7 +1045,7 @@ static_prefix:
   # Internal static
   internal_js: /js
   internal_css: /css
-  internal_img:/img
+  internal_img: /img
 
   anchor: https://lib.baomitu.com/anchor-js/4.3.1/
 
