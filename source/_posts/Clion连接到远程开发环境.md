@@ -1,12 +1,14 @@
 ---
 title: Clion连接到远程开发环境
 date: 2023-07-11 19:04:43
-tags: C++ Linux
+tags: [C++, Linux]
+description: Clion连接到Linux远程开发环境
 ---
 
 # 前言
 
-对于C/C++的开发，生产环境往往都离不开Linux，开发环境在Windows而言，可以通过远程连接到Linux从而实现远程开发，本文章将会以Ubuntu为例，实现Clion远程连接Ubuntu
+对于C/C++的开发，生产环境往往都离不开Linux
+本文章将会以Ubuntu为例，在Windows系统下实现Clion远程连接Ubuntu
 
 
 # 1.Ubuntu环境的准备
@@ -23,11 +25,8 @@ docker run -it --name=<容器名称> -p <暴露端口>
 # 具体例子
 docker run -it --name=ubuntu-cpp -p 9999:22 ubuntu:22.04
 ```
-> 对于-p参数，其格式为 `主机(宿主)端口:容器端口`，
-> <br>也就是说，上述的例子会将容器的22端口映射到主机的9999端口
-> <br>对于访问主机的9999端口，即会访问到容器的22端口(ssh服务端口)
+> 对于-p参数，其格式为 `主机(宿主)端口:容器端口`
 
-<br>
 
 ## 1.2 安装启动ssh服务
 * 首先，开启ssh服务需要下载openssh-server包
@@ -65,7 +64,6 @@ service ssh status
 # 用什么用户连接就修改什么用户的密码
 passwd root
 ```
-<br>
 
 ## 1.3 配置ssh服务 
 > ssh服务的配置文件在/etc/ssh/sshd_config
@@ -91,7 +89,6 @@ PermitRootLogin|允许root用户登录
 
 * 注意！在配置文件末尾添加一行`PermitRootLogin yes`，表示可以通过root用户登录
 
-<br>
 
 > 修改完配置文件需要重启ssh服务，配置才会生效
 ```sh
@@ -144,7 +141,7 @@ service ssh restart
 
 <br>
 
-# 3 通过SFTP同步代码
+# 3. 通过SFTP同步代码
 通过配置SFTP，可以使本地代码同步到远程开发环境
 
 * 打开 `文件` -> `⚙️设置` -> `构建、执行、部署` -> `部署`
@@ -155,7 +152,6 @@ service ssh restart
 <br>
 
 * 填写配置
-* 使用`Rsync`之后，在Linux下载安装的库是可以被本地Clion识别引用的
 > 注意，此时在`部署`中还有一个SFTP，这个SFTP是与远程编译有关的的
 
 ![](../img/post/Clion连接到远程开发环境/SFTP2.png)
@@ -169,4 +165,4 @@ service ssh restart
 
 # 结尾
 
-至此，就配置完成了，可以快乐的在Clion写代码了😉
+至此就配置完成了，可以快乐的在Clion写代码了😉
